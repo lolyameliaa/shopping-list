@@ -10,13 +10,13 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
+// ---------------- DARK THEME ----------------
 private val DarkColorScheme = darkColorScheme(
-    primary = RedDark,
-    onPrimary = RedOn,
+    primary = RedDarkPrimaryContainer,
+    onPrimary = RedDarkOnPrimaryContainer,
     primaryContainer = RedDarkPrimaryContainer,
     onPrimaryContainer = RedDarkOnPrimaryContainer,
-    secondary = RedSecondary,
-    secondaryContainer = RedDarkSecondaryContainer,
+    secondary = RedDarkSecondaryContainer,
     onSecondaryContainer = RedDarkOnSecondaryContainer,
     background = RedDarkBackground,
     onBackground = RedDarkOnBackground,
@@ -30,7 +30,6 @@ private val LightColorScheme = lightColorScheme(
     primaryContainer = RedPrimaryContainer,
     onPrimaryContainer = RedOnPrimaryContainer,
     secondary = RedSecondary,
-    secondaryContainer = RedSecondaryContainer,
     onSecondaryContainer = RedOnSecondaryContainer,
     background = RedBackground,
     onBackground = RedOnBackground,
@@ -41,7 +40,6 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun ShoppingListTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
@@ -50,10 +48,10 @@ fun ShoppingListTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
